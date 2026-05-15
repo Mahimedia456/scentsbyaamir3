@@ -1,0 +1,467 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   GREY / SILVER LUXURY THEME
+   Black + charcoal + chrome silver + white glass style
+========================================================= */
+
+:root {
+  color-scheme: dark;
+
+  /* Main dark backgrounds */
+  --theme-bg: #030303;
+  --theme-bg-soft: #090909;
+  --theme-bg-card: #111111;
+  --theme-bg-card-2: #161616;
+
+  /* Accent color: Grey / Silver */
+  --theme-accent-rgb: 192, 192, 192;
+  --theme-accent: #c0c0c0;
+  --theme-accent-dark: #3a3a3a;
+  --theme-accent-deep: #151515;
+  --theme-accent-soft: #e5e7eb;
+
+  /* Gold variables converted to silver/white.
+     Names same rakhe hain taake existing code break na ho. */
+  --theme-gold-rgb: 245, 245, 245;
+  --theme-gold: #f5f5f5;
+  --theme-gold-soft: #ffffff;
+  --theme-gold-dark: #9ca3af;
+
+  /* Text */
+  --theme-ivory: #ffffff;
+  --theme-muted: #b8b8b8;
+  --theme-muted-2: #8f8f8f;
+
+  /* Chrome effects */
+  --theme-chrome-1: #ffffff;
+  --theme-chrome-2: #e5e7eb;
+  --theme-chrome-3: #bfc3c9;
+  --theme-chrome-4: #737373;
+
+  background: var(--theme-bg);
+}
+
+/* =========================================================
+   BASE
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 80% 0%,
+      rgba(255, 255, 255, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(192, 192, 192, 0.16),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(255, 255, 255, 0.06),
+      transparent 38%
+    ),
+    var(--theme-bg);
+  color: var(--theme-ivory);
+  font-family: Inter, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--theme-accent-soft);
+  color: #030303;
+}
+
+/* =========================================================
+   GLOBAL PAGE BACKGROUND
+   Class name same rakha hai: red-noir-page
+   Iska color ab silver noir hai.
+========================================================= */
+
+.red-noir-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 78% 18%,
+      rgba(255, 255, 255, 0.1),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 28% 12%,
+      rgba(192, 192, 192, 0.14),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 82% 72%,
+      rgba(255, 255, 255, 0.07),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #030303 0%,
+      #0b0b0b 34%,
+      #111111 62%,
+      #151515 100%
+    );
+}
+
+/* =========================================================
+   PANELS / UTILITIES
+========================================================= */
+
+.glass-panel {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(10, 10, 10, 0.76)
+    );
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 30px 120px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(22px);
+}
+
+/* old class name rakhi hai, now silver border */
+.red-border {
+  border: 1px solid rgba(255, 255, 255, 0.34);
+}
+
+.gold-text {
+  background: linear-gradient(
+    120deg,
+    #ffffff 0%,
+    #f3f4f6 28%,
+    #bfc3c9 58%,
+    #ffffff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* =========================================================
+   BUTTONS — SILVER / WHITE LUXURY
+========================================================= */
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold transition duration-300 hover:-translate-y-0.5;
+
+  color: #030303;
+  background:
+    linear-gradient(
+      135deg,
+      var(--theme-chrome-1) 0%,
+      var(--theme-chrome-2) 38%,
+      var(--theme-chrome-3) 72%,
+      var(--theme-chrome-4) 100%
+    );
+  box-shadow:
+    0 0 55px rgba(255, 255, 255, 0.18),
+    0 18px 40px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.btn-primary:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f5f5f5 36%,
+      #d4d4d4 74%,
+      #9ca3af 100%
+    );
+  box-shadow:
+    0 0 72px rgba(255, 255, 255, 0.26),
+    0 22px 48px rgba(0, 0, 0, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.btn-white {
+  @apply inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold transition duration-300 hover:-translate-y-0.5;
+
+  background: #ffffff;
+  color: #030303;
+  box-shadow:
+    0 0 45px rgba(255, 255, 255, 0.16),
+    0 16px 34px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.btn-white:hover {
+  background: #f5f5f5;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold transition duration-300 hover:-translate-y-0.5;
+
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 14px 35px rgba(0, 0, 0, 0.35);
+}
+
+.btn-outline:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 0 42px rgba(255, 255, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* =========================================================
+   CINEMATIC / 3D EFFECTS
+========================================================= */
+
+.cinematic-perspective {
+  perspective: 1400px;
+}
+
+.hero-bottle-glow {
+  filter:
+    drop-shadow(0 45px 100px rgba(0, 0, 0, 0.95))
+    drop-shadow(0 0 80px rgba(255, 255, 255, 0.18))
+    drop-shadow(0 0 28px rgba(192, 192, 192, 0.12));
+}
+
+.luxury-noise {
+  background-image:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.07) 0 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(255, 255, 255, 0.12) 0 1px,
+      transparent 1px
+    );
+  background-size: 42px 42px, 64px 64px;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes cinematicBottle {
+  0% {
+    transform: translateY(0px) rotateY(-8deg) rotateZ(-1deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(-24px) rotateY(8deg) rotateZ(1deg) scale(1.035);
+  }
+
+  100% {
+    transform: translateY(0px) rotateY(-8deg) rotateZ(-1deg) scale(1);
+  }
+}
+
+.animate-cinematic-bottle {
+  animation: cinematicBottle 7s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes accentPulse {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.72;
+    transform: scale(1.08);
+  }
+}
+
+/* old class name rakhi hai taake existing code break na ho */
+.animate-red-pulse {
+  animation: accentPulse 5s ease-in-out infinite;
+}
+
+@keyframes orbitSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-orbit-slow {
+  animation: orbitSlow 28s linear infinite;
+}
+
+@keyframes smokeRise {
+  0% {
+    transform: translateY(30px) scale(0.95);
+    opacity: 0.1;
+  }
+
+  50% {
+    transform: translateY(-25px) scale(1.04);
+    opacity: 0.28;
+  }
+
+  100% {
+    transform: translateY(30px) scale(0.95);
+    opacity: 0.1;
+  }
+}
+
+.animate-smoke-rise {
+  animation: smokeRise 9s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.12;
+  }
+
+  50% {
+    transform: translateY(-28px) translateX(18px);
+    opacity: 0.48;
+  }
+
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.12;
+  }
+}
+
+.animate-drift {
+  animation: drift 7s ease-in-out infinite;
+}
+
+/* =========================================================
+   EXTRA BANNER EFFECTS — SILVER NOIR
+========================================================= */
+
+.cinematic-banner-bg {
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 255, 255, 0.12),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(192, 192, 192, 0.16),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.94),
+      rgba(255, 255, 255, 0.07)
+    );
+}
+
+.cinematic-card-bg {
+  background:
+    radial-gradient(
+      circle at 70% 20%,
+      rgba(255, 255, 255, 0.13),
+      transparent 42%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(0, 0, 0, 0.46)
+    );
+}
+
+.accent-glow {
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.22),
+      rgba(192, 192, 192, 0.1),
+      transparent 70%
+    );
+  filter: blur(90px);
+}
+
+.gold-glow {
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.16),
+      rgba(192, 192, 192, 0.08),
+      transparent 70%
+    );
+  filter: blur(90px);
+}
+
+/* =========================================================
+   SILVER UI HELPERS
+========================================================= */
+
+.silver-text {
+  background: linear-gradient(
+    120deg,
+    #ffffff,
+    #e5e7eb,
+    #9ca3af,
+    #ffffff
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.silver-border {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.silver-glass {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.075),
+      rgba(0, 0, 0, 0.44)
+    );
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.52),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(22px);
+}
+
+.white-icon-glow {
+  color: #ffffff;
+  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.22));
+}

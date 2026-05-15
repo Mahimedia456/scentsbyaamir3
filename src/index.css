@@ -1,0 +1,400 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   THEME COLORS
+   Sirf yahan colors change karo.
+   Red theme ko blue/purple/green/amber mein yahin se badal sakte ho.
+========================================================= */
+
+:root {
+  color-scheme: dark;
+
+  /* Main dark background */
+  --theme-bg: #030303;
+  --theme-bg-soft: #070707;
+  --theme-bg-card: #100606;
+
+  /* Accent color currently red */
+  --theme-accent-rgb: 193, 18, 31;
+  --theme-accent: #c1121f;
+  --theme-accent-dark: #4c0000;
+  --theme-accent-deep: #280000;
+  --theme-accent-soft: #8c0d1a;
+
+  /* Gold accent */
+  --theme-gold-rgb: 212, 175, 55;
+  --theme-gold: #d4af37;
+  --theme-gold-soft: #e2c766;
+  --theme-gold-dark: #b8841b;
+
+  /* Text */
+  --theme-ivory: #f5eee6;
+  --theme-muted: #d4c2b0;
+
+  background: var(--theme-bg);
+}
+
+/* =========================================================
+   QUICK COLOR THEMES
+   Agar color change karna ho to :root values replace karo.
+========================================================= */
+
+/*
+
+BLUE NOIR THEME:
+
+:root {
+  --theme-accent-rgb: 14, 116, 144;
+  --theme-accent: #0e7490;
+  --theme-accent-dark: #083344;
+  --theme-accent-deep: #061923;
+  --theme-accent-soft: #0891b2;
+}
+
+PURPLE NOIR THEME:
+
+:root {
+  --theme-accent-rgb: 126, 34, 206;
+  --theme-accent: #7e22ce;
+  --theme-accent-dark: #3b0764;
+  --theme-accent-deep: #1e0b2f;
+  --theme-accent-soft: #9333ea;
+}
+
+GREEN OUD THEME:
+
+:root {
+  --theme-accent-rgb: 22, 101, 52;
+  --theme-accent: #166534;
+  --theme-accent-dark: #052e16;
+  --theme-accent-deep: #021b0b;
+  --theme-accent-soft: #15803d;
+}
+
+AMBER GOLD THEME:
+
+:root {
+  --theme-accent-rgb: 180, 83, 9;
+  --theme-accent: #b45309;
+  --theme-accent-dark: #451a03;
+  --theme-accent-deep: #261003;
+  --theme-accent-soft: #d97706;
+}
+
+*/
+
+/* =========================================================
+   BASE
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 80% 0%,
+      rgba(var(--theme-accent-rgb), 0.35),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 10% 20%,
+      rgba(var(--theme-accent-rgb), 0.45),
+      transparent 30%
+    ),
+    var(--theme-bg);
+  color: var(--theme-ivory);
+  font-family: Inter, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--theme-accent-soft);
+  color: #ffffff;
+}
+
+/* =========================================================
+   GLOBAL PAGE BACKGROUND
+========================================================= */
+
+.red-noir-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 78% 18%,
+      rgba(var(--theme-accent-rgb), 0.32),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 28% 12%,
+      rgba(var(--theme-accent-rgb), 0.38),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      var(--theme-bg) 0%,
+      var(--theme-bg-card) 42%,
+      var(--theme-accent-deep) 100%
+    );
+}
+
+/* =========================================================
+   PANELS / UTILITIES
+========================================================= */
+
+.glass-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--theme-accent-rgb), 0.13),
+    rgba(5, 5, 5, 0.72)
+  );
+  border: 1px solid rgba(var(--theme-gold-rgb), 0.16);
+  box-shadow: 0 30px 120px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(22px);
+}
+
+.red-border {
+  border: 1px solid rgba(var(--theme-accent-rgb), 0.45);
+}
+
+.gold-text {
+  background: linear-gradient(
+    120deg,
+    #f8e7a8,
+    var(--theme-gold),
+    var(--theme-gold-dark)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5;
+
+  background: var(--theme-accent);
+  box-shadow: 0 0 80px rgba(var(--theme-accent-rgb), 0.35);
+}
+
+.btn-primary:hover {
+  background: var(--theme-accent-soft);
+}
+
+.btn-white {
+  @apply inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold transition duration-300 hover:-translate-y-0.5;
+
+  background: var(--theme-ivory);
+  color: #030303;
+}
+
+.btn-white:hover {
+  background: #ffffff;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold transition duration-300 hover:-translate-y-0.5;
+
+  border: 1px solid rgba(var(--theme-gold-rgb), 0.4);
+  color: var(--theme-ivory);
+}
+
+.btn-outline:hover {
+  border-color: var(--theme-gold-soft);
+  background: rgba(var(--theme-gold-rgb), 0.1);
+}
+
+/* =========================================================
+   CINEMATIC / 3D EFFECTS
+========================================================= */
+
+.cinematic-perspective {
+  perspective: 1400px;
+}
+
+.hero-bottle-glow {
+  filter:
+    drop-shadow(0 45px 100px rgba(0, 0, 0, 0.95))
+    drop-shadow(0 0 80px rgba(var(--theme-accent-rgb), 0.35));
+}
+
+.luxury-noise {
+  background-image:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.07) 0 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(var(--theme-gold-rgb), 0.12) 0 1px,
+      transparent 1px
+    );
+  background-size: 42px 42px, 64px 64px;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes cinematicBottle {
+  0% {
+    transform: translateY(0px) rotateY(-8deg) rotateZ(-1deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(-24px) rotateY(8deg) rotateZ(1deg) scale(1.035);
+  }
+
+  100% {
+    transform: translateY(0px) rotateY(-8deg) rotateZ(-1deg) scale(1);
+  }
+}
+
+.animate-cinematic-bottle {
+  animation: cinematicBottle 7s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes accentPulse {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.88;
+    transform: scale(1.08);
+  }
+}
+
+/* old class name rakhi hai taake existing code break na ho */
+.animate-red-pulse {
+  animation: accentPulse 5s ease-in-out infinite;
+}
+
+@keyframes orbitSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-orbit-slow {
+  animation: orbitSlow 28s linear infinite;
+}
+
+@keyframes smokeRise {
+  0% {
+    transform: translateY(30px) scale(0.95);
+    opacity: 0.12;
+  }
+
+  50% {
+    transform: translateY(-25px) scale(1.04);
+    opacity: 0.34;
+  }
+
+  100% {
+    transform: translateY(30px) scale(0.95);
+    opacity: 0.12;
+  }
+}
+
+.animate-smoke-rise {
+  animation: smokeRise 9s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.15;
+  }
+
+  50% {
+    transform: translateY(-28px) translateX(18px);
+    opacity: 0.55;
+  }
+
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.15;
+  }
+}
+
+.animate-drift {
+  animation: drift 7s ease-in-out infinite;
+}
+
+/* =========================================================
+   EXTRA BANNER EFFECTS
+========================================================= */
+
+.cinematic-banner-bg {
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(var(--theme-accent-rgb), 0.35),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(var(--theme-gold-rgb), 0.14),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.92),
+      rgba(var(--theme-accent-rgb), 0.18)
+    );
+}
+
+.cinematic-card-bg {
+  background:
+    radial-gradient(
+      circle at 70% 20%,
+      rgba(var(--theme-accent-rgb), 0.38),
+      transparent 42%
+    ),
+    rgba(0, 0, 0, 0.42);
+}
+
+.accent-glow {
+  background: rgba(var(--theme-accent-rgb), 0.25);
+  filter: blur(90px);
+}
+
+.gold-glow {
+  background: rgba(var(--theme-gold-rgb), 0.14);
+  filter: blur(90px);
+}
